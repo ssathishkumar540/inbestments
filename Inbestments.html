@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en" ng-app="DemoApp">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Inbestments</title>
+
+    <!-- bootstrap.min css -->
+    <!-- <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Animate Css -->
+    <link rel="stylesheet" href="plugins/animate-css/animate.css">
+    <!-- Icon Font css -->
+    <link rel="stylesheet" href="plugins/fontawesome/css/all.css">
+    <link rel="stylesheet" href="plugins/fonts/Pe-icon-7-stroke.css">
+    <!-- Themify icon Css -->
+    <link rel="stylesheet" href="plugins/themify/css/themify-icons.css">
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" href="plugins/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="plugins/slick-carousel/slick/slick-theme.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.default.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.css">
+
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+
+<body id="top-header" ng-controller="MainCtrl">
+    <!-- LOADER TEMPLATE -->
+    <div id="page-loader">
+        <div class="loader-icon fa fa-spin colored-border"></div>
+    </div>
+    <!-- /LOADER TEMPLATE -->
+
+
+    <!-- NAVBAR
+    ================================================= -->
+    <nav class="navbar navbar-expand-lg header-white trans-navigation fixed-top navbar-togglable">
+        <div class="container">
+            <a class="navbar-brand" href="index-3.html">
+                <img src="https://dci3mufvy7x4p.cloudfront.net/images/header-inbestments-logo.png" />
+            </a>
+            <!-- Toggler -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fa fa-bars"></span>
+            </button>
+
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <!-- Links -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item ">
+                        <a href="" class="nav-link js-scroll-trigger">
+                            Smart Search
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="" class="nav-link js-scroll-trigger">
+                            Portfolio Builder
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="" class="nav-link js-scroll-trigger">
+                            Smart CMA
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Smart Insights
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarWelcome">
+                            <a class="dropdown-item " href="index.html">
+                                Insights Dashboard
+                            </a>
+                            <a class="dropdown-item " href="index-2.html">
+                                Insights Upload Contact
+                            </a>
+                            <a class="dropdown-item " href="index-3.html">
+                                Insights Smart Invites
+                            </a>
+                            <a class="dropdown-item " href="index-4.html">
+                                Lead Generation
+                            </a>
+                            <a class="dropdown-item " href="index-4.html">
+                                Insights API Key
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Hello Bob-Dev
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarWelcome">
+                            <a class="dropdown-item " href="index.html">
+                                Refer Friends
+                            </a>
+                            <a class="dropdown-item " href="index-2.html">
+                                My Profile
+                            </a>
+                            <a class="dropdown-item " href="index-3.html">
+                                Home-3
+                            </a>
+                            <a class="dropdown-item " href="index-4.html">
+                                Home-4
+                            </a>
+                        </div>
+                    </li>
+
+
+
+
+
+                </ul>
+            </div>
+            <!-- / .navbar-collapse -->
+        </div>
+        <!-- / .container -->
+    </nav>
+
+
+    <!-- HERO
+    ================================================== -->
+    <section class="page-banner-area page-about">
+        <div class="overlay"></div>
+        <!-- Content -->
+        <div class="container">
+            <div class="row justify-content-center12">
+                <div class="col-lg-9 col-md-12 col-12 text-center">
+                    <div class="page-banner-content">
+                        <h1 class="display-4 font-weight-bold">Smart Insights Upload Contacts</h1>
+
+                    </div>
+                </div>
+            </div>
+            <!-- / .row -->
+        </div>
+        <!-- / .container -->
+    </section>
+
+
+    <!-- SECTIONS ================================================== -->
+
+    <section class="section" id="single-project">
+        <!-- <div class="containerMiddle"> -->
+        <div class="row justify-content-center" style="height: 275px;">
+            <!-- <div class="col-lg-10">
+                    <div class="row"> -->
+            <div class="col-lg-12">
+                <div class="project-lg-img">
+                    <span>Download CSV Template For <a href="C:\Users\sathi\Downloads\Client-Upload-Template-For-Agents.csv" download="Agent">Agent </a>|<a href="C:\Users\sathi\Downloads\Client-Upload-Template-For-Agents.csv" download="LoanOriginator"> Originator</a></span>
+                    <div class="row justify-content-center2">
+                        <div class="col-lg-6">
+                            <div class="project-single-info">
+                                <div class="lbl">Choose An Agent</div>
+                                <ui-select ng-model="person.selected" theme="select2" ng-disabled="disabled" ng-required="true" style="width: 260px;">
+                                    <ui-select-match placeholder="">{{$select.selected.name}}</ui-select-match>
+                                    <ui-select-choices repeat="person in people | propsFilter: {name: $select.search}">
+                                        <div ng-bind-html="person.name | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                                <div class="lbl">Primary owner</div>
+                                <div><input type="radio" name="primary_owner" ng-model="cUpCtrl.primary_owner" value="A" class="ng-pristine ng-valid ng-empty ng-touched" aria-invalid="false"> Agent <input type="radio" name="primary_owner" ng-model="cUpCtrl.primary_owner"
+                                        value="L" class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false"> Loan Originator</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="project-single-info1">
+                                <div class="lbl">Choose An Lendar</div>
+                                <ui-select ng-model="person.selected" theme="select2" ng-disabled="disabled" style="width: 260px;">
+                                    <ui-select-match placeholder="">{{$select.selected.name}}</ui-select-match>
+                                    <ui-select-choices repeat="person in lender | propsFilter: {name: $select.search}">
+                                        <div ng-bind-html="person.name | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                                <div class="lbl">Uploading on behalf of</div>
+                                <div><input type="radio" name="primary_owner" ng-model="cUpCtrl.primary_owner" value="A" class="ng-pristine ng-valid ng-empty ng-touched" aria-invalid="false"> Agent <input type="radio" name="primary_owner" ng-model="cUpCtrl.primary_owner"
+                                        value="L" class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false"> Loan Originator</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center4">
+                        <button class="lcu-btn import-btn" title="Upload Clients" ng-click="uploadClientDetails(people)">Upload Clients</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="section " id="footer">
+        <div class="overlay footer-overlay"></div>
+        <!--Content -->
+        <div class="container">
+            <div class="row justify-content-start">
+                <div class="col-lg-4 col-sm-12">
+                    <div class="footer-widget">
+                        <!-- Brand -->
+                        <div class="col-lg-6">
+                            <img style="height: 100px" src="images/footer-inbestments-logo-grey-with-white.png">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-sm-6">
+                    <div class="footer-widget">
+                        <h3>Company</h3>
+                        <!-- Links -->
+                        <ul class="footer-links ">
+                            <li>
+                                <a href="#">
+                                    About Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Careers
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Blog
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Contact Us
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-2 col-sm-6">
+                    <div class="footer-widget">
+                        <h3>Loan Officers</h3>
+                        <!-- Links -->
+                        <ul class="footer-links ">
+                            <li>
+                                <a href="#">
+                                    Smart Insight Pricing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Portfolio Builder
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-sm-6">
+                    <div class="footer-widget">
+                        <h3>Agents</h3>
+                        <!-- Links -->
+                        <ul class="footer-links ">
+                            <li>
+                                <a href="#">
+                                    For Agents
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Agent FAQs
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Agent Pricing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Smart Insights Pricing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Portfolio Builder
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-sm-6">
+                    <div class="footer-widget">
+                        <h3>Buyers</h3>
+                        <!-- Links -->
+                        <ul class="footer-links ">
+                            <li>
+                                <a href="#">
+                                    For Buyers
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Buyers Pricing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Portfolio Builder
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- / .row -->
+
+
+            <div class="row text-right pt-5">
+                <div class="col-lg-12">
+                    <!-- Copyright -->
+                    <p class="footer-copy ">
+                        Copyright @ 2021 inbestments. All rights reserved.
+                    </p>
+                </div>
+            </div>
+            <!-- / .row -->
+        </div>
+        <!-- / .container -->
+    </footer>
+
+
+    <!--  Page Scroll to Top  -->
+
+    <a class="scroll-to-top js-scroll-trigger" href="#top-header">
+        <i class="fa fa-angle-up"></i>
+    </a>
+
+
+
+
+
+    <!-- 
+    Essential Scripts
+    =====================================-->
+
+
+    <!-- Main jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 3.1 -->
+    <!-- <script src="plugins/bootstrap/js/bootstrap.min.js"></script> -->
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Slick Slider -->
+    <script src="plugins/slick-carousel/slick/slick.min.js"></script>
+    <!-- <script src="js/jquery.easing.1.3.js"></script> -->
+
+    <!-- <script src="js/angular.js"></script> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-sanitize.js"></script>
+    <script src="js/select.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <!-- <script src="js/form/contact.js"></script> -->
+    <script src="js/theme.js"></script>
+
+    <script src="js/contactsUpload.js"></script>
+
+</body>
+
+</html>
