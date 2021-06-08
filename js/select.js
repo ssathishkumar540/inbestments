@@ -2134,7 +2134,7 @@
                     } else {
                         if (droppedItemIndex < scope.$index) {
                             newIndex = scope.$index;
-                            
+
                         } else {
                             newIndex = scope.$index + 1;
                         }

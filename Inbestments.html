@@ -9,7 +9,6 @@
     <title>Inbestments</title>
 
     <!-- bootstrap.min css -->
-    <!-- <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Animate Css -->
     <link rel="stylesheet" href="plugins/animate-css/animate.css">
@@ -22,16 +21,14 @@
     <link rel="stylesheet" href="plugins/slick-carousel/slick/slick.css">
     <link rel="stylesheet" href="plugins/slick-carousel/slick/slick-theme.css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/9.5.7/css/jquery.fileupload.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://handsontable.com/static/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.default.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.css">
 
-
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
-
 </head>
-
-
 
 <body id="top-header" ng-controller="MainCtrl">
     <!-- LOADER TEMPLATE -->
@@ -39,7 +36,6 @@
         <div class="loader-icon fa fa-spin colored-border"></div>
     </div>
     <!-- /LOADER TEMPLATE -->
-
 
     <!-- NAVBAR
     ================================================= -->
@@ -113,18 +109,12 @@
                             </a>
                         </div>
                     </li>
-
-
-
-
-
                 </ul>
             </div>
             <!-- / .navbar-collapse -->
         </div>
         <!-- / .container -->
     </nav>
-
 
     <!-- HERO
     ================================================== -->
@@ -149,10 +139,7 @@
     <!-- SECTIONS ================================================== -->
 
     <section class="section" id="single-project">
-        <!-- <div class="containerMiddle"> -->
         <div class="row justify-content-center" style="height: 275px;">
-            <!-- <div class="col-lg-10">
-                    <div class="row"> -->
             <div class="col-lg-12">
                 <div class="project-lg-img">
                     <span>Download CSV Template For <a href="C:\Users\sathi\Downloads\Client-Upload-Template-For-Agents.csv" download="Agent">Agent </a>|<a href="C:\Users\sathi\Downloads\Client-Upload-Template-For-Agents.csv" download="LoanOriginator"> Originator</a></span>
@@ -167,33 +154,241 @@
                                     </ui-select-choices>
                                 </ui-select>
                                 <div class="lbl">Primary owner</div>
-                                <div><input type="radio" name="primary_owner" ng-model="cUpCtrl.primary_owner" value="A" class="ng-pristine ng-valid ng-empty ng-touched" aria-invalid="false"> Agent <input type="radio" name="primary_owner" ng-model="cUpCtrl.primary_owner"
+                                <div><input type="radio" name="primaryOwner" ng-model="primaryOwner" value="A" class="ng-pristine ng-valid ng-empty ng-touched" aria-invalid="false"> Agent <input type="radio" name="primaryOwner" ng-model="cUpCtrl.primaryOwner"
                                         value="L" class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false"> Loan Originator</div>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="project-single-info1">
                                 <div class="lbl">Choose An Lendar</div>
-                                <ui-select ng-model="person.selected" theme="select2" ng-disabled="disabled" style="width: 260px;">
+                                <ui-select ng-model="data.selected" theme="select2" ng-disabled="disabled" style="width: 260px;">
                                     <ui-select-match placeholder="">{{$select.selected.name}}</ui-select-match>
-                                    <ui-select-choices repeat="person in lender | propsFilter: {name: $select.search}">
-                                        <div ng-bind-html="person.name | highlight: $select.search"></div>
+                                    <ui-select-choices repeat="data in lender | propsFilter: {name: $select.search}">
+                                        <div ng-bind-html="data.name | highlight: $select.search"></div>
                                     </ui-select-choices>
                                 </ui-select>
                                 <div class="lbl">Uploading on behalf of</div>
-                                <div><input type="radio" name="primary_owner" ng-model="cUpCtrl.primary_owner" value="A" class="ng-pristine ng-valid ng-empty ng-touched" aria-invalid="false"> Agent <input type="radio" name="primary_owner" ng-model="cUpCtrl.primary_owner"
+                                <div><input type="radio" name="uploading_on_behalf" ng-model="uploading_on_behalf" value="A" class="ng-pristine ng-valid ng-empty ng-touched" aria-invalid="false"> Agent <input type="radio" name="uploading_on_behalf" ng-model="uploading_on_behalf"
                                         value="L" class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false"> Loan Originator</div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-center4">
-                        <button class="lcu-btn import-btn" title="Upload Clients" ng-click="uploadClientDetails(people)">Upload Clients</button>
+
+                        <div class="row justify-content-center4">
+                            <button type="button" ng-click="uploadClientModal(person.selected, $event)" class="lcu-btn import-btn" data-toggle="modal" data-target="#myModal">
+                                Upload Clients
+                              </button>
+
+                            <!-- The Modal -->
+                            <div class="modal" id="myModal">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+
+                                        <!-- Modal Header -->
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Bulk Add Contacts</h4>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+
+                                        <!-- Modal body -->
+                                        <div class="modal-bodyFirst">
+                                            <div class="uploadLeft">
+                                                <div>
+                                                    <div class="button_outer">
+                                                        <div class="btn_upload">
+                                                            <div class="row fileupload-buttonbar">
+                                                                <div class="col-lg-7">
+                                                                    <span class="btn btn-success fileinput-button">            
+                                                                    <span>Upload data from file</span>
+                                                                    <input type="file" id="upload_file" ngf-select="SelectFile($file)" name="" accept=".csv" />
+                                                                    </span>
+                                                                    <p class="secondaryTextColor">.csv, .tsv spreadsheets accepted.</p>
+                                                                    <span class="fileupload-process"></span>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="uploadRight">
+                                                <p id="rightContent">You can upload any .csv, .tsv file with any set of columns as long as it has 1 record per row. The next step will allow you to match your spreadsheet columns to the right data points. You'll be able to clean
+                                                    up or remove any corrupted data before finalizing your report.</p>
+                                            </div>
+                                        </div>
+                                        <h2 class="secondary-header">...or just manually enter your data here:</h2>
+                                        <div class="modal-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Property Address<button id="mandatBtn">required</button></th>
+                                                            <th>Property Unit Number</th>
+                                                            <th>Property City<button id="mandatBtn">required</button></th>
+                                                            <th>Property Zip</th>
+                                                            <th>Property State<button id="mandatBtn">required</button></th>
+                                                            <th>Borrower First Name<button id="mandatBtn">required</button></th>
+                                                            <th>Borrower Last Name<button id="mandatBtn">required</button></th>
+                                                            <th>Borrower Email<button id="mandatBtn">required</button></th>
+                                                            <th>Home Owner Mobile</th>
+                                                            <th>Home Owner DOB</th>
+                                                            <th>Home Owner Anniversary Date</th>
+                                                            <th>Co-Borrower First Name</th>
+                                                            <th>Co-Borrower Last Name</th>
+                                                            <th>Co-Borrower Email</th>
+                                                            <th>Co-Borrower Mobile</th>
+                                                            <th>Co-Borrower DOB</th>
+                                                            <th>Main Loan Amount</th>
+                                                            <th>Main Loan Interest Rate</th>
+                                                            <th>Loan Term Years</th>
+                                                            <th>Loan Purpose</th>
+                                                            <th>Loan Number</th>
+                                                            <th>Monthly Mortgage Insurance Premium</th>
+                                                            <th>Appraised Value</th>
+                                                            <th>Closing Date or EST Closing Date</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr ng-repeat="book in bookingDetails" ng-right-click="openContextMenu($event, $index)" ng-click="rtcl($event, $index)">
+                                                            <td>
+                                                                <span>
+                                                          <input type="text" class="editable-cell" ng-model="book.propertyAddress" required/>
+                                                        </span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                          <input type="text" class="editable-cell" ng-model="book.propertyUrequirednitNumber" />
+                                                        </span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                          <input type="text" class="editable-cell" ng-model="book.propertyCity" required/>
+                                                        </span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                          <input type="text" class="editable-cell" ng-model="book.propertyZip" />
+                                                        </span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                          <input type="text" class="editable-cell" ng-model="book.propertyState" required/>
+                                                        </span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                          <input type="text" class="editable-cell" ng-model="book.borrowerFirstName" required/>
+                                                        </span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                          <input type="text" class="editable-cell" ng-model="book.borrowerLastName" required/>
+                                                        </span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                          <input type="text" class="editable-cell" ng-model="book.borrowerEmail" required/>
+                                                        </span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                          <input type="text" class="editable-cell" ng-model="book.homeOwnerMobile" />
+                                                        </span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                          <input type="text" class="editable-cell" ng-model="book.homeOwnerDOB" />
+                                                        </span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                          <input type="text" class="editable-cell" ng-model="book.homeOwnerAnniversaryDate" />
+                                                        </span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                          <input type="text" class="editable-cell" ng-model="book.coBorrowerFirstName" />
+                                                        </span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                          <input type="text" class="editable-cell" ng-model="book.coBorrowerLastName" />
+                                                        </span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                          <input type="text" class="editable-cell" ng-model="book.coBorrowerEmail" />
+                                                        </span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                          <input type="text" class="editable-cell" ng-model="book.coBorrowerMobile" />
+                                                        </span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                          <input type="text" class="editable-cell" ng-model="book.coBorrowerDOB" />
+                                                        </span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                          <input type="text" class="editable-cell" ng-model="book.mainLoanAmount" />
+                                                        </span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                          <input type="text" class="editable-cell" ng-model="book.mainLoanInterestRate" />
+                                                        </span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                          <input type="text" class="editable-cell" ng-model="book.loanTermYears" />
+                                                        </span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                          <input type="text" class="editable-cell" ng-model="book.loanPurpose" />
+                                                        </span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                          <input type="text" class="editable-cell" ng-model="book.LoanNumber" />
+                                                        </span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                          <input type="text" class="editable-cell" ng-model="book.monthlyMortageInsure" />
+                                                        </span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                          <input type="text" class="editable-cell" ng-model="book.appraisedValue" />
+                                                        </span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                          <input type="text" class="editable-cell" ng-model="book.closingDate" />
+                                                        </span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- Modal footer -->
+                                        <div class="modal-footer">
+                                            <button type="button" ng-enabled="personalDetails.length > 0" ng-disabled="personalDetails.length == 0 || personalDetails.length == undefined" ng-click="clearData()" class="btn btn-primary mr-auto">Clear Data</button>
+                                            <button type="button" class="btn btn-primary" ng-click="storeData()">Continue</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
-
     <footer class="section " id="footer">
         <div class="overlay footer-overlay"></div>
         <!--Content -->
@@ -205,7 +400,6 @@
                         <div class="col-lg-6">
                             <img style="height: 100px" src="images/footer-inbestments-logo-grey-with-white.png">
                         </div>
-
                     </div>
                 </div>
 
@@ -237,7 +431,6 @@
                         </ul>
                     </div>
                 </div>
-
 
                 <div class="col-lg-2 col-sm-6">
                     <div class="footer-widget">
@@ -318,7 +511,6 @@
             </div>
             <!-- / .row -->
 
-
             <div class="row text-right pt-5">
                 <div class="col-lg-12">
                     <!-- Copyright -->
@@ -332,40 +524,30 @@
         <!-- / .container -->
     </footer>
 
-
     <!--  Page Scroll to Top  -->
 
     <a class="scroll-to-top js-scroll-trigger" href="#top-header">
         <i class="fa fa-angle-up"></i>
     </a>
 
-
-
-
-
-    <!-- 
-    Essential Scripts
-    =====================================-->
-
-
+    <!--   Essential Scripts   =====================================-->
     <!-- Main jQuery -->
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 3.1 -->
-    <!-- <script src="plugins/bootstrap/js/bootstrap.min.js"></script> -->
-
+    <script data-require="jquery@*" data-semver="2.2.0" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js" data-semver="1.5.3" data-require="angular.js@1.5.3"></script>
+    <script data-require="ui-bootstrap@*" data-semver="2.5.0" src="https://cdn.rawgit.com/angular-ui/bootstrap/gh-pages/ui-bootstrap-tpls-2.5.0.js"></script>
+
     <!-- Slick Slider -->
     <script src="plugins/slick-carousel/slick/slick.min.js"></script>
-    <!-- <script src="js/jquery.easing.1.3.js"></script> -->
-
-    <!-- <script src="js/angular.js"></script> -->
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.5/js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload.min.js"></script>
+    <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-sanitize.js"></script>
     <script src="js/select.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-    <!-- <script src="js/form/contact.js"></script> -->
     <script src="js/theme.js"></script>
-
     <script src="js/contactsUpload.js"></script>
 
 </body>
